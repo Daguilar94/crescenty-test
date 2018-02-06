@@ -1,0 +1,38 @@
+<div class="card text-center col-xs-12 col-md-6 offset-md-3 my-5 p-0">
+  <div class="card-header">
+    <div><%= @account.new_record? ? "Create" : "Edit" %> Account</div>
+  </div>
+  <div class="card-body px-5">
+
+    <%=form_for @account do |f|%>
+
+    <div class="field">
+      <%= f.label :user_id %><br />
+      <%= f.collection_select(:user_id, User.all, :id, :first_name) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :number %><br />
+      <%= f.number_field :number, autofocus: true, autocomplete: "number", class:'form-control' %>
+      <span class="error-message"><%=@account.errors[:number][0] if !@account.errors[:number].empty?%></span>
+    </div>
+
+    <div class="field">
+      <%= f.label :initial_amount %><br />
+      <%= f.number_field :initial_amount, autofocus: true, autocomplete: "initial_amount", class:'form-control' %>
+      <span class="error-message"><%=@account.errors[:initial_amount][0] if !@account.errors[:initial_amount].empty?%></span>
+    </div>
+
+    <div class="field">
+      <%= f.label :actual_amount %><br />
+      <%= f.number_field :actual_amount, autofocus: true, autocomplete: "actualamount", class:'form-control' %>
+      <span class="error-message"><%=@account.errors[:actual_amount][0] if !@account.errors[:actual_amount].empty?%></span>
+    </div>
+
+    <div>
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

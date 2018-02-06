@@ -1,0 +1,40 @@
+
+<div class="m-2 text-center">
+  <table class="table">
+    <thead class='thead-light'>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Initial Amount</th>
+        <th scope="col">Actual Amount</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @accounts.each do |account|%>
+      <tr>
+        <td><%=account.number%></td>
+        <td><%=account.initial_amount%></td>
+        <td><%=account.actual_amount%></td>
+        <td><%=account.user.first_name%></td>
+        <td>
+          <%=link_to edit_account_path(account) do%>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <%end%>
+        </td>
+        <td>
+          <%= link_to account_path(account), method: :delete, data: { confirm: "You sure?" } do%>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <%end%>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<div class="text-right pr-3 my-3">
+  <%= link_to new_account_path do %>
+    <button class="btn btn-primary">New Account</button>
+  <% end %>
+</div>

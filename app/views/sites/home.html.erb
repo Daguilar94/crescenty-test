@@ -1,0 +1,33 @@
+<div class="text-center mt-5">
+  <h1 class='display-1'>Enter your personal id</h1>
+
+  <%= form_tag("/", method: "get", class:'search-form my-5') do %>
+  <%= number_field_tag(:wanted_user)%>
+  <%= submit_tag("Search") %>
+  <% end %>
+
+  <% if @accounts != nil %>
+    <% if @accounts == 'none' %>
+      <h3 class='display-6 text-muted'>Tnere is no user registered with the entered ID</h3>
+      <% else %>
+        <div class="m-2 text-center">
+          <table class="table">
+            <thead class='thead-light'>
+              <tr>
+                <th scope="col">Account number</th>
+                <th scope="col">Actual amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @accounts.each do |account| %>
+                <tr>
+                  <td><%= account.number %></td>
+                  <td><%= account.actual_amount %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+  <% end %>
+</div>

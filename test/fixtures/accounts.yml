@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  initial_amount: 1
+  actual_amount: 1
+  user: one
+
+two:
+  number: MyString
+  initial_amount: 1
+  actual_amount: 1
+  user: two

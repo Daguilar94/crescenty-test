@@ -1,0 +1,55 @@
+
+<div class="card text-center col-xs-12 col-md-6 offset-md-3 my-5 p-0">
+  <div class="card-header">
+    <strong><%= @user.new_record? ? "Create" : "Edit" %> User</strong>
+  </div>
+  <div class="card-body px-5">
+
+    <%= form_for @user do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+        <span class="error-message"><%=@user.errors[:email][0] if !@user.errors[:email].empty?%></span>
+      </div>
+
+      <div class="field">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class:'form-control' %>
+        <span class="error-message"><%=@user.errors[:first_name][0] if !@user.errors[:first_name].empty?%></span>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class:'form-control' %>
+        <span class="error-message"><%=@user.errors[:last_name][0] if !@user.errors[:last_name].empty?%></span>
+      </div>
+
+      <div class="field">
+        <%= f.label :birth_date %><br />
+        <%= f.date_field :birth_date, autofocus: true, autocomplete: "birth date", class:'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :personal_id %><br />
+        <%= f.number_field :personal_id, autofocus: true, autocomplete: "id", class:'form-control' %>
+        <span class="error-message"><%=@user.errors[:personal_id][0] if !@user.errors[:personal_id].empty?%></span>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %><br />
+        <%= f.number_field :phone, autofocus: true, autocomplete: "phone", class:'form-control' %>
+        <span class="error-message"><%=@user.errors[:phone][0] if !@user.errors[:phone].empty?%></span>
+      </div>
+
+      <div class="field">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, autocomplete: "city", class:'form-control' %>
+        <span class="error-message"><%=@user.errors[:city][0] if !@user.errors[:city].empty?%></span>
+      </div>
+
+      <div>
+        <%= f.submit class: "btn btn-primary mt-3" %>
+      </div>
+    <% end %>
+  </div>
+</div>
